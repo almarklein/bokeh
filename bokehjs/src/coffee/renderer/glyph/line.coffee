@@ -3,9 +3,18 @@ define [
   "renderer/properties",
   "./glyph",
 ], (_, Properties, Glyph) ->
+  
+  lv_counter = 0
 
   class LineView extends Glyph.View
-
+    
+    
+    constructor: (x...) ->
+        lv_counter += 1
+        @lv_id = lv_counter
+        console.log "creating LineView #{@lv_id}"
+        super(x...)
+    
     _fields: ['x', 'y']
     _properties: ['line']
 
@@ -15,7 +24,9 @@ define [
     _render: (ctx, indices) ->
       drawing = false
       @props.line.set(ctx, @props)
-
+      
+      console.log "render LineView #{@lv_id}"
+        
       for i in indices
         if !isFinite(@sx[i] + @sy[i]) and drawing
           ctx.stroke()
@@ -39,12 +50,20 @@ define [
   class Line extends Glyph.Model
     default_view: LineView
     type: 'Line'
-
+    
+    constructor: (x...) ->
+        console.log 'creating Line Model'
+        super(x...)
+    
     display_defaults: ->
       return _.extend {}, super(), @line_defaults
 
   class Lines extends Glyph.Collection
     model: Line
+    
+    constructor: (x...) ->
+        console.log 'creating Line Collection'
+        super(x...)
 
   return {
     Model: Line

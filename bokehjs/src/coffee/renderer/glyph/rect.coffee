@@ -6,10 +6,14 @@ define [
 ], (_, rbush, Properties, Glyph) ->
 
   class RectView extends Glyph.View
-
+    
     _fields: ['x', 'y', 'width', 'height', 'angle']
     _properties: ['line', 'fill']
-
+    
+    constructor: (x...) ->
+        console.log 'creating RectView'
+        super(x...)
+    
     _map_data: () ->
       [sxi, syi] = @renderer.map_to_screen(@x, @glyph.x.units, @y, @glyph.y.units)
 

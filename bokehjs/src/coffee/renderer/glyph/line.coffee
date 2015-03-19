@@ -2,16 +2,17 @@ define [
   "underscore",
   "renderer/properties",
   "./glyph",
-], (_, Properties, Glyph) ->
+  "vispy"
+], (_, Properties, Glyph, vispy) ->
+    
+  lv_counter = 0  
   
-  lv_counter = 0
-
   class LineView extends Glyph.View
     
     
-    constructor: (x...) ->
+    constructor: (x...) ->        
         lv_counter += 1
-        @lv_id = lv_counter
+        @lv_id = lv_counter 
         console.log "creating LineView #{@lv_id}"
         super(x...)
     

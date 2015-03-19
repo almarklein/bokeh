@@ -9,8 +9,10 @@ require.config
     # be an unresolvable cyclic dependency.
     'jquery-private': { 'jquery': 'jquery' }
   paths:
-    jquery:            "vendor/jquery-1.11.1/jquery"
+    #jquery:            "vendor/jquery-1.11.1/jquery"
     jquery_ui:         "vendor/jquery-ui-1.11.2/js"
+    jquery:            "/home/almar/build/vispy.js/scripts/lib/jquery.min"    
+    jquery_ui_min:     "/home/almar/build/vispy.js/scripts/lib/jquery-ui/jquery-ui.min"
     jquery_mousewheel: "vendor/jquery-mousewheel-3.1.12/jquery.mousewheel"
     jquery_event_drag: "vendor/jquery-event-2.2/jquery.event.drag"
     jquery_event_drop: "vendor/jquery-event-2.2/jquery.event.drop"
@@ -28,6 +30,8 @@ require.config
     hammer:            "vendor/hammer.js-2.0.4/hammer"
     numeral:           "vendor/numeral.js-1.5.3/numeral"
     handlebars:        "vendor/handlebars-2.0.0/handlebars"
+    #vispy:             "vendor/vispy/vispy.min"
+    vispy:             "/home/almar/build/vispy.js/dist/vispy"
   shim:
     kiwi:
       exports: 'kiwi'

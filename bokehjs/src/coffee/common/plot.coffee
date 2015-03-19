@@ -239,6 +239,12 @@ define [
         sy = @canvas.vy_to_sy(@model.title_panel.get('bottom') + @model.get('title_standoff'))
         @title_props.set(ctx, {})
         ctx.fillText(title, sx, sy)
+    
+      if @canvas_view.canvas3d?
+        console.log('render canvas2d into webgl canvas')
+        @canvas_view.glx._render()
+      else
+        console.log('NOT rendering canvas2d into webgl canvas')
 
     _render_levels: (ctx, levels, clip_region) ->
       ctx.save()
